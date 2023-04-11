@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/default.astro';
+import heroImage from '../assets/sandwich-hero.jpg';
+---
+
+<Layout>
+	<section class="block hero">
+		<h1>All Sandwiches. All the time.</h1>
+		<p class="lede">The world’s leading sandwich connoisseurs trust sndwch.</p>
+		<a href="/shop" class="big-link"> Shop Sandwich Kits</a>
+		<img
+			src={heroImage.src}
+			alt="A sandwich on a plate. This sandwich is a taco."
+			class="hero-image"
+		/>
+	</section>
+
+	<section class="block products"></section>
+
+	<section class="block newsletter"></section>
+
+	<style>
+		.hero {
+			padding-inline-start: 60%;
+			position: relative;
+		}
+
+		.hero *:not(.hero-image) {
+			position: relative;
+			z-index: 10;
+		}
+
+		.lede {
+			line-height: 1.25;
+			margin: 0.5rem 0 0;
+		}
+
+		.big-link {
+			background-color: var(--color-gray-900);
+			border-radius: 0.25rem;
+			color: var(--color-gray-100);
+			display: inline-block;
+			font-weight: 700;
+			margin: 0.5rem 0 0;
+			padding: 0.5rem 1.25rem;
+			text-decoration: none;
+			transition: 150ms background-color linear;
+		}
+
+		.big-link:hover {
+			background-color: var(--color-gray-800);
+		}
+
+		.big-link:is(:active, :focus) {
+			outline: 2px solid var(--color-gray-900);
+			outline-offset: 4px;
+		}
+
+		.hero-image {
+			position: absolute;
+			inset: 0;
+			object-fit: cover;
+			width: 100%;
+			z-index: 1;
+		}
+	</style>
+</Layout>
