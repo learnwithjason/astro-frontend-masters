@@ -9,25 +9,22 @@ Small business site that uses several of the common workflows that many (most?) 
 - Marketing landing page
   - Hero images
     - Image handling
-  - Newsletter capture
   - Cards
-    - Testimonials
     - Featured Products
-- Blog
-  - Markdown
+  - Newsletter capture
+- Shop 
   - Advanced layout (nested)
+  - Shared state
+    - Solid cart
+    - React item buttons (add to cart)
+    - Nano stores to share state
+- Blog
+  - Content Collections
+    - Markdown
   - Dynamic routes
   - RSS feed
-- Videos
-  - Pagination
-  - Fetching from an API / CMS
 - About
   - Markdown page
-- Shop 
-  - Shared state
-    - React cart
-    - Solid item buttons (add to cart)
-    - Tanstack Query or nanostores to share state
 - 404 page
 
 ## What features do we want to cover?

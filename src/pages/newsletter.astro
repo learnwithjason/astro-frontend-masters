@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/page.astro';
+
+let message;
+if (Astro.request.method === 'POST') {
+	try {
+		const data = await Astro.request.formData();
+		const name = data.get('name');
+		const email = data.get('email');
+
+		message = `Subscribed as “${name}” with the email ${email}.`;
+	} catch (error) {
+		console.error(error);
+	}
+}
+---
+
+<Layout>
+	<h1 class="heading">Get the sndwch newsletter</h1>
+
+	<div class:list={{ success: true, visible: message }}>
+		<p>
+			{message}
+			<a href="/newsletter">start over</a>
+		</p>
+	</div>
+
+	<form method="post" class="newsletter">
+		<label for="name">Name</label>
+		<input type="text" id="name" name="name" required />
+
+		<label for="email">Email</label>
+		<input type="email" id="email" name="email" required />
+
+		<button class="big-link">Subscribe</button>
+	</form>
+</Layout>
+
+<style>
+	.heading {
+		text-align: center;
+	}
+	.newsletter,
+	.success {
+		background-color: var(--color-gray-100);
+		border: 1px solid var(--color-gray-200);
+		border-radius: 0.125rem;
+		display: flex;
+		flex-direction: column;
+		margin: 1rem auto;
+		max-width: 400px;
+		padding: 1.5rem 2rem;
+	}
+
+	.newsletter label {
+		line-height: 1.1;
+	}
+
+	.newsletter label:not(:first-of-type) {
+		margin-block-start: 1rem;
+	}
+
+	.newsletter input {
+		border: 1px solid var(--color-gray-200);
+		border-radius: 0.125rem;
+		font-size: 1rem;
+		margin-block-start: 0.25rem;
+		padding: 0.25rem;
+	}
+
+	.newsletter button {
+		margin-block-start: 1rem;
+	}
+
+	.success {
+		background-color: hsl(100, 50%, 97%);
+		border-color: hsl(100, 50%, 60%);
+		display: none;
+		padding-block: 0.5rem;
+	}
+
+	.visible {
+		display: block;
+	}
+</style>

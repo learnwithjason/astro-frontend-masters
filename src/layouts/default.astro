@@ -33,7 +33,7 @@ const navItems = [
 	<body>
 		<header>
 			<a href="/" rel="home">
-				<span aria-label="hotdog">🌭</span>
+				<span role="img" aria-label="hotdog">🌭</span>
 				sndwch
 			</a>
 
@@ -45,13 +45,29 @@ const navItems = [
 				}
 			</nav>
 		</header>
+
 		<slot />
+
+		<footer>
+			<p>
+				<a href="https://jason.af/links">created by Jason Lengstorf</a>
+				<a href="#frontend-masters-link"
+					>learn to build this on Frontend Masters</a
+				>
+				<a href="https://github.com/learnwithjason/astro-frontend-masters"
+					>source code</a
+				>
+			</p>
+		</footer>
 	</body>
 </html>
 
 <style is:global>
 	:root {
-		--color-gray-100: hsl(275deg 40% 94% / 1);
+		--color-gray-100: hsl(275, 30%, 95%);
+		--color-gray-200: hsl(275, 21%, 85%);
+		--color-gray-600: hsl(275, 11%, 43%);
+		--color-gray-700: hsl(275, 26%, 23%);
 		--color-gray-800: hsl(275deg 40% 20% / 1);
 		--color-gray-900: hsl(275deg 40% 10% / 1);
 	}
@@ -81,6 +97,29 @@ const navItems = [
 
 	.block {
 		padding: 3rem max(5vw, calc((100% - 800px) / 2));
+	}
+
+	.big-link {
+		background-color: var(--color-gray-900);
+		border: 0;
+		border-radius: 0.25rem;
+		color: white;
+		display: inline-block;
+		font-size: 1rem;
+		font-weight: 700;
+		margin: 0.5rem 0 0;
+		padding: 0.5rem 1.25rem;
+		text-decoration: none;
+		transition: 150ms background-color linear;
+	}
+
+	.big-link:hover {
+		background-color: var(--color-gray-800);
+	}
+
+	.big-link:is(:active, :focus) {
+		outline: 2px solid var(--color-gray-900);
+		outline-offset: 4px;
 	}
 </style>
 
@@ -112,6 +151,23 @@ const navItems = [
 		font-size: 1.25rem;
 		font-weight: 700;
 		text-decoration: none;
+	}
+
+	footer {
+		font-size: 0.75rem;
+		padding: 3rem 5% 2rem;
+	}
+
+	footer p {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		justify-content: center;
+	}
+
+	footer a {
+		color: var(--color-gray-600);
+		display: block;
 	}
 
 	@media (min-width: 400px) {

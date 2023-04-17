@@ -1,13 +1,21 @@
 ---
 import Layout from '../layouts/default.astro';
+import ShopItems from '../components/shop-items.astro';
 import heroImage from '../assets/sandwich-hero.jpg';
+import newsletterImage from '../assets/newsletter.jpg';
+
+export const prerender = true;
 ---
 
 <Layout>
 	<section class="block hero">
-		<h1>All Sandwiches. All the time.</h1>
-		<p class="lede">The world’s leading sandwich connoisseurs trust sndwch.</p>
-		<a href="/shop" class="big-link"> Shop Sandwich Kits</a>
+		<div class="cta">
+			<h1>All Sandwiches. All the time.</h1>
+			<p class="lede">
+				The world’s leading sandwich connoisseurs trust sndwch.
+			</p>
+			<a href="/shop" class="big-link"> Shop Sandwich Kits</a>
+		</div>
 		<img
 			src={heroImage.src}
 			alt="A sandwich on a plate. This sandwich is a taco."
@@ -15,53 +23,130 @@ import heroImage from '../assets/sandwich-hero.jpg';
 		/>
 	</section>
 
-	<section class="block products"></section>
+	<section class="block products">
+		<ShopItems count={3} addToCart={false} />
+		<p class="shop-link"><a href="/shop">Shop All Sandwich Kits &rarr;</a></p>
+	</section>
 
-	<section class="block newsletter"></section>
+	<section class="block newsletter">
+		<img
+			src={newsletterImage.src}
+			alt="a bag with the word “sndwch” superimposed on it"
+		/>
+		<div class="copy">
+			<h3>Prefer your sandwiches to go?</h3>
+			<p>
+				Get the sndwch newsletter to hear what else qualifies as a sandwich
+				first!
+			</p>
+			<a href="/newsletter" class="big-link">Subscribe</a>
+		</div>
+	</section>
 
 	<style>
 		.hero {
-			padding-inline-start: 60%;
+			aspect-ratio: 2 / 3;
+			display: flex;
+			overflow: hidden;
+			padding: 1rem 5% 40%;
 			position: relative;
 		}
 
-		.hero *:not(.hero-image) {
+		.hero :not(.hero-image) {
 			position: relative;
 			z-index: 10;
 		}
 
+		.cta {
+			max-width: 400px;
+		}
+
+		.hero h1 {
+			font-size: clamp(1.75rem, 10vw, 2.5rem);
+			margin: 0;
+		}
+
 		.lede {
+			font-size: clamp(1rem, 5.75vw, 1.5rem);
 			line-height: 1.25;
 			margin: 0.5rem 0 0;
-		}
-
-		.big-link {
-			background-color: var(--color-gray-900);
-			border-radius: 0.25rem;
-			color: var(--color-gray-100);
-			display: inline-block;
-			font-weight: 700;
-			margin: 0.5rem 0 0;
-			padding: 0.5rem 1.25rem;
-			text-decoration: none;
-			transition: 150ms background-color linear;
-		}
-
-		.big-link:hover {
-			background-color: var(--color-gray-800);
-		}
-
-		.big-link:is(:active, :focus) {
-			outline: 2px solid var(--color-gray-900);
-			outline-offset: 4px;
 		}
 
 		.hero-image {
 			position: absolute;
 			inset: 0;
 			object-fit: cover;
-			width: 100%;
+			object-position: 28% 0%;
+			height: 135%;
+			width: 135%;
 			z-index: 1;
+		}
+
+		.shop-link {
+			text-align: center;
+		}
+
+		.newsletter {
+			align-items: center;
+			background-color: var(--color-gray-100);
+			display: flex;
+			gap: 2rem;
+		}
+
+		.newsletter h3 {
+			font-size: 1.5rem;
+			margin: 0;
+		}
+
+		.newsletter img {
+			aspect-ratio: 1;
+			width: min(30%, 250px);
+		}
+
+		@media (min-width: 450px) {
+			.hero {
+				aspect-ratio: 4 / 5;
+			}
+
+			.hero-image {
+				height: 120%;
+				object-position: 35% 50%;
+				width: 120%;
+			}
+		}
+
+		@media (min-width: 600px) {
+			.hero {
+				align-items: center;
+				aspect-ratio: 3 / 2;
+				justify-content: flex-end;
+				padding: 2rem 5%;
+			}
+
+			.hero-image {
+				height: 110%;
+				object-fit: cover;
+				object-position: 65% 50%;
+				width: 100%;
+			}
+		}
+
+		@media (min-width: 900px) {
+			.hero {
+				aspect-ratio: 2.5 / 1;
+			}
+
+			.hero-image {
+				height: 100%;
+				object-position: 50% 50%;
+			}
+		}
+
+		@media (min-width: 1150px) {
+			.hero {
+				justify-content: flex-start;
+				padding-left: 60%;
+			}
 		}
 	</style>
 </Layout>
