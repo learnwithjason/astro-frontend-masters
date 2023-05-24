@@ -1,3 +1,7 @@
+---
+layout: ../layouts/default.astro
+---
+
 # About sndwch
 
 The history of sndwch is the history of all of us, really. Who among us hasn’t set bravely forth to challenge the boundaries that limited those who came before us? Who hasn’t felt the call to shed the senseless burdens of previous generations and embrace a brighter, happier, more unified future?
