@@ -1,5 +1,5 @@
 import { useStore } from '@nanostores/solid';
-import { cart, subtotal } from '../stores/cart';
+import { cart, removeItemFromCart, subtotal } from '../stores/cart';
 import styles from './cart.module.css';
 import { Show, createSignal } from 'solid-js';
 
@@ -40,12 +40,21 @@ export const Cart = () => {
 			<Show when={Object.values($cart()).length > 0} fallback={<EmptyState />}>
 				<ul class={styles.items}>
 					{Object.values($cart()).map((entry) => {
+						if (!entry) {
+							return null;
+						}
+
 						return (
 							<li class={styles.item}>
 								<span class={styles.quantity}>{entry.quantity}</span>
 								<span class={styles.name}>{entry.item.title}</span>
 								<span class={styles.remove}>
-									<button title="remove item">&times;</button>
+									<button
+										title="remove item"
+										onClick={() => removeItemFromCart(entry.item.id)}
+									>
+										&times;
+									</button>
 								</span>
 								<span class={styles.price}>
 									{formatCurrency(entry.item.price)}
