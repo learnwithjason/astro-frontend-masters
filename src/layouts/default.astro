@@ -1,3 +1,20 @@
+---
+const navItems = [
+	{
+		path: '/shop',
+		label: 'Shop',
+	},
+	{
+		path: '/blog',
+		label: 'Blog',
+	},
+	{
+		path: '/about',
+		label: 'About',
+	},
+];
+---
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -21,6 +38,13 @@
 			</a>
 
 			<!-- TODO: add nav -->
+			<nav>
+				{
+					navItems.map((item) => {
+						return <a href={item.path}>{item.label}</a>;
+					})
+				}
+			</nav>
 		</header>
 
 		<slot />
@@ -54,9 +78,9 @@
 	}
 
 	html {
-		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-			Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-			"Segoe UI Symbol";
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+			Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+			'Segoe UI Symbol';
 		font-size: 18px;
 		line-height: 1.45;
 	}
@@ -66,7 +90,7 @@
 	}
 
 	:is(h1, h2, h3, h4, h5, h6) {
-		font-family: "DynaPuff", cursive;
+		font-family: 'DynaPuff', cursive;
 		font-weight: 700;
 		line-height: 1.1;
 		margin: 1.5rem 0 0;
@@ -110,9 +134,9 @@
 		padding: 1rem;
 	}
 
-	a[rel="home"] {
+	a[rel='home'] {
 		color: inherit;
-		font-family: "DynaPuff", cursive;
+		font-family: 'DynaPuff', cursive;
 		font-size: 1.5rem;
 		font-weight: 700;
 		text-decoration: none;
