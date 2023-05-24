@@ -1,0 +1,44 @@
+.post {
+	margin: 0;
+}
+
+.post:not(:first-of-type) {
+	margin-top: 3rem;
+}
+
+.post h2 {
+	margin: 0;
+}
+
+.post h2 a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.post time {
+	color: var(--color-gray-700);
+	display: block;
+	font-size: 0.875rem;
+	margin: 0.5rem 0 0;
+}
+
+.post p {
+	margin: 0.5rem 0 0;
+}
+
+.post .big-link {
+	font-size: 0.875rem;
+}
+
+.feed {
+	margin: 4rem 0 0;
+}
+
+.feed a {
+	color: var(--color-gray-600);
+	text-decoration: none;
+}
+
+.link-text {
+	text-decoration: underline;
+}

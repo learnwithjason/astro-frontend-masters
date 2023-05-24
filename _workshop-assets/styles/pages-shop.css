@@ -1,0 +1,7 @@
+.wrapper {
+	align-items: flex-start;
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: 1fr 260px;
+	position: relative;
+}

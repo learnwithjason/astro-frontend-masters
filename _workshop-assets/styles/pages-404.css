@@ -1,0 +1,15 @@
+.not-found {
+	margin: 0 auto;
+	max-width: 500px;
+	text-align: center;
+}
+
+.not-found h1 {
+	font-size: 2rem;
+}
+
+.not-found img {
+	display: block;
+	margin: 1rem 0 0;
+	width: 100%;
+}
