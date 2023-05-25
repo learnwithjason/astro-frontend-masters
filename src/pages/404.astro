@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/page.astro';
+---
+
+<Layout>
+	<div class="not-found">
+		<h1>Page not found (404)</h1>
+		<img
+			src="https://images.unsplash.com/photo-1531928351158-2f736078e0a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+			alt="an empty plate with a frowny face drawn on it"
+		/>
+		<p>Looks like the page you requested doesn’t exist.</p>
+		<p><a href="/">&larr; back home</a></p>
+	</div>
+</Layout>
+
+<style>
+	.not-found {
+		margin: 0 auto;
+		max-width: 500px;
+		text-align: center;
+	}
+
+	.not-found h1 {
+		font-size: 2rem;
+	}
+
+	.not-found img {
+		display: block;
+		margin: 1rem 0 0;
+		width: 100%;
+	}
+</style>
