@@ -9,7 +9,7 @@ type ShopItem = {
 	price: number;
 };
 
-type CartStore = {
+type CartItem = {
 	quantity: number;
 	item: ShopItem;
 };
