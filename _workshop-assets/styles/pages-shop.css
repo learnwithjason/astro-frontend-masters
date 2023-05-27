@@ -1,4 +1,8 @@
-.wrapper {
+.shop {
+	padding: 3rem 5%;
+}
+
+.products {
 	align-items: flex-start;
 	display: grid;
 	gap: 2rem;
