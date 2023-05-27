@@ -54,7 +54,28 @@
 
 .newsletter img {
 	aspect-ratio: 1;
+	display: none;
 	width: min(30%, 250px);
+}
+
+.newsletter-form {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.newsletter-form label {
+	display: block;
+	font-size: 0.75rem;
+}
+
+.newsletter-form input {
+	display: block;
+	font-size: 1rem;
+	height: 2.125rem;
+	padding: 0.25rem 0.5rem;
+	width: 100%;
 }
 
 @media (min-width: 450px) {
@@ -66,6 +87,10 @@
 		height: 120%;
 		object-position: 35% 50%;
 		width: 120%;
+	}
+
+	.newsletter img {
+		display: block;
 	}
 }
 
@@ -93,6 +118,15 @@
 	.hero-image {
 		height: 100%;
 		object-position: 50% 50%;
+	}
+
+	.newsletter-form {
+		align-items: flex-end;
+		flex-direction: row;
+	}
+
+	.newsletter-form label {
+		width: 30%;
 	}
 }
 
