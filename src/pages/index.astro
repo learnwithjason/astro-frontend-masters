@@ -2,6 +2,7 @@
 import Layout from '../layouts/default.astro';
 import ShopItems from '../components/shop-items.astro';
 import heroImage from '../images/sandwich-hero.jpg';
+import newsletterImage from '../images/newsletter.jpg';
 ---
 
 <Layout>
@@ -25,6 +26,33 @@ import heroImage from '../images/sandwich-hero.jpg';
 	<section class="block products">
 		<ShopItems count={3} addToCart={false} />
 		<p class="shop-link"><a href="/shop">Shop All Sandwich Kits &rarr;</a></p>
+	</section>
+
+	<section class="block newsletter">
+		<img
+			src={newsletterImage}
+			alt="a bag with the word “sndwch” superimposed on it"
+		/>
+		<div class="copy">
+			<h3>Prefer your sandwiches to go?</h3>
+			<p>
+				Get the sndwch newsletter to hear what else qualifies as a sandwich
+				first!
+			</p>
+			<form method="post" action="/newsletter" class="newsletter-form">
+				<label for="name">
+					Name
+					<input type="text" id="name" name="name" required />
+				</label>
+
+				<label for="email">
+					Email
+					<input type="email" id="email" name="email" required />
+				</label>
+
+				<button class="big-link">Subscribe</button>
+			</form>
+		</div>
 	</section>
 </Layout>
 
@@ -85,7 +113,28 @@ import heroImage from '../images/sandwich-hero.jpg';
 
 	.newsletter img {
 		aspect-ratio: 1;
+		display: none;
 		width: min(30%, 250px);
+	}
+
+	.newsletter-form {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.newsletter-form label {
+		display: block;
+		font-size: 0.75rem;
+	}
+
+	.newsletter-form input {
+		display: block;
+		font-size: 1rem;
+		height: 2.125rem;
+		padding: 0.25rem 0.5rem;
+		width: 100%;
 	}
 
 	@media (min-width: 450px) {
@@ -97,6 +146,10 @@ import heroImage from '../images/sandwich-hero.jpg';
 			height: 120%;
 			object-position: 35% 50%;
 			width: 120%;
+		}
+
+		.newsletter img {
+			display: block;
 		}
 	}
 
@@ -124,6 +177,15 @@ import heroImage from '../images/sandwich-hero.jpg';
 		.hero-image {
 			height: 100%;
 			object-position: 50% 50%;
+		}
+
+		.newsletter-form {
+			align-items: flex-end;
+			flex-direction: row;
+		}
+
+		.newsletter-form label {
+			width: 30%;
 		}
 	}
 
