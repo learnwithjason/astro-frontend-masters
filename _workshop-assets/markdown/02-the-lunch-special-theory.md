@@ -6,3 +6,4 @@ description: >
   There are only three categories of food: soup, salads, and sandwiches.
 ---
 
+There are only three categories of food: soup, salads, and sandwiches.
