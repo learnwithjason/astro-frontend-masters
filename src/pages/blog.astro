@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/page.astro';
+
+const blogPosts = await getCollection('blog');
+---
+
+<Layout>
+	<section class="blog-entries">
+		{
+			blogPosts.map((post) => {
+				return (
+					<div class="post">
+						<h2>
+							<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+						</h2>
+						<time datetime={post.data.date.toISOString()}>
+							{post.data.date.toDateString()}
+						</time>
+						<p>{post.data.description}</p>
+						<a href={`/blog/${post.slug}`}>read post</a>
+					</div>
+				);
+			})
+		}
+	</section>
+
+	<p class="feed">
+		<a href="/rss.xml">
+			<span role="img" aria-label="satellite dish">📡</span>
+			<span class="link-text">Subscribe to the RSS Feed</span>
+		</a>
+	</p>
+</Layout>
+
+<style>
+	.post {
+		margin: 0;
+	}
+
+	.post:not(:first-of-type) {
+		margin-top: 3rem;
+	}
+
+	.post h2 {
+		margin: 0;
+	}
+
+	.post h2 a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.post time {
+		color: var(--color-gray-700);
+		display: block;
+		font-size: 0.875rem;
+		margin: 0.5rem 0 0;
+	}
+
+	.post p {
+		margin: 0.5rem 0 0;
+	}
+
+	.post .big-link {
+		font-size: 0.875rem;
+	}
+
+	.feed {
+		margin: 4rem 0 0;
+	}
+
+	.feed a {
+		color: var(--color-gray-600);
+		text-decoration: none;
+	}
+
+	.link-text {
+		text-decoration: underline;
+	}
+</style>

@@ -17,18 +17,25 @@ if (!result.ok) {
 }
 
 const shopItems: ShopItem[] = await result.json();
+
+interface Props {
+	count?: number;
+	addToCart?: boolean;
+}
+
+const { count = Infinity, addToCart = true } = Astro.props;
 ---
 
 <section class="shop-items">
 	{
-		shopItems.map((item) => {
+		shopItems.slice(0, count).map((item) => {
 			return (
 				<div class="item">
 					<img src={item.image.src} alt={item.image.alt} />
 					<h2>{item.title}</h2>
 					<p>{item.description}</p>
 					<p class="price">{formatCurrency(item.price)}</p>
-					<AddToCart item={item} client:only="react" />
+					{addToCart ? <AddToCart item={item} client:only="react" /> : null}
 				</div>
 			);
 		})
