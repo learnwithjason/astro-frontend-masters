@@ -10,7 +10,15 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.5.5"
+		"@astrojs/react": "^2.2.0",
+		"@astrojs/solid-js": "^2.2.0",
+		"@nanostores/react": "^0.7.1",
+		"@nanostores/solid": "^0.4.2",
+		"astro": "^2.5.5",
+		"nanostores": "^0.9.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"solid-js": "^1.7.5"
 	},
 	"devDependencies": {
 		"@types/markdown-it": "^12.2.3",
