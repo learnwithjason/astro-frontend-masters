@@ -1,12 +1,170 @@
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>TODO: build the sndwch website</h1>
-	</body>
-</html>
+---
+import Layout from '../layouts/default.astro';
+import ShopItems from '../components/shop-items.astro';
+import heroImg from '../images/sandwich-hero.jpg';
+---
+
+<Layout>
+	<section class="block hero">
+		<div class="cta">
+			<h1>All Sandwiches. All the time.</h1>
+			<p class="lede">
+				The world-s leading sandwich connoisseurs trust sandwc.
+			</p>
+			<a href="/shop" class="big-link">Shop Sandwich Kits</a>
+		</div>
+
+		<img
+			src={heroImg}
+			alt="A sandwich on a plate."
+			class="hero-image"
+			loading="eager"
+			decoding="async"
+		/>
+	</section>
+	<section class="block products">
+		<ShopItems count={3} addToCart={false} />
+		<p class="shop-link"><a href="/shop">Shop All Sandwich &rarr;</a></p>
+	</section>
+</Layout>
+
+<style>
+	.hero {
+		aspect-ratio: 2 / 3;
+		display: flex;
+		overflow: hidden;
+		padding: 1rem 5% 40%;
+		position: relative;
+	}
+
+	.hero :not(.hero-image) {
+		position: relative;
+		z-index: 10;
+	}
+
+	.cta {
+		max-width: 400px;
+	}
+
+	.hero h1 {
+		font-size: clamp(1.75rem, 10vw, 2.5rem);
+		margin: 0;
+	}
+
+	.lede {
+		font-size: clamp(1rem, 5.75vw, 1.5rem);
+		line-height: 1.25;
+		margin: 0.5rem 0 0;
+	}
+
+	.hero-image {
+		position: absolute;
+		inset: 0;
+		object-fit: cover;
+		object-position: 28% 0%;
+		height: 135%;
+		width: 135%;
+		z-index: 1;
+	}
+
+	.shop-link {
+		text-align: center;
+	}
+
+	.newsletter {
+		align-items: center;
+		background-color: var(--color-gray-100);
+		display: flex;
+		gap: 2rem;
+	}
+
+	.newsletter h3 {
+		font-size: 1.5rem;
+		margin: 0;
+	}
+
+	.newsletter img {
+		aspect-ratio: 1;
+		display: none;
+		width: min(30%, 250px);
+	}
+
+	.newsletter-form {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.newsletter-form label {
+		display: block;
+		font-size: 0.75rem;
+	}
+
+	.newsletter-form input {
+		display: block;
+		font-size: 1rem;
+		height: 2.125rem;
+		padding: 0.25rem 0.5rem;
+		width: 100%;
+	}
+
+	@media (min-width: 450px) {
+		.hero {
+			aspect-ratio: 4 / 5;
+		}
+
+		.hero-image {
+			height: 120%;
+			object-position: 35% 50%;
+			width: 120%;
+		}
+
+		.newsletter img {
+			display: block;
+		}
+	}
+
+	@media (min-width: 600px) {
+		.hero {
+			align-items: center;
+			aspect-ratio: 3 / 2;
+			justify-content: flex-end;
+			padding: 2rem 5%;
+		}
+
+		.hero-image {
+			height: 110%;
+			object-fit: cover;
+			object-position: 65% 50%;
+			width: 100%;
+		}
+	}
+
+	@media (min-width: 900px) {
+		.hero {
+			aspect-ratio: 2.5 / 1;
+		}
+
+		.hero-image {
+			height: 100%;
+			object-position: 50% 50%;
+		}
+
+		.newsletter-form {
+			align-items: flex-end;
+			flex-direction: row;
+		}
+
+		.newsletter-form label {
+			width: 30%;
+		}
+	}
+
+	@media (min-width: 1150px) {
+		.hero {
+			justify-content: flex-start;
+			padding-left: 60%;
+		}
+	}
+</style>

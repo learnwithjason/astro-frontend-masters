@@ -10,12 +10,20 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.5.5"
+		"@astrojs/react": "^3.0.6",
+		"@astrojs/solid-js": "^3.0.2",
+		"@nanostores/react": "^0.7.1",
+		"@nanostores/solid": "^0.4.2",
+		"astro": "^2.5.5",
+		"nanostores": "^0.9.5",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"solid-js": "^1.8.7"
 	},
 	"devDependencies": {
 		"@types/markdown-it": "^12.2.3",
-		"@types/react": "^18.2.7",
-		"@types/react-dom": "^18.2.4",
+		"@types/react": "^18.2.41",
+		"@types/react-dom": "^18.2.17",
 		"@types/sanitize-html": "^2.9.0"
 	}
 }
